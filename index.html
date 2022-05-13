@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ready2go :)</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <link rel="shortcut icon" href="/img/box.svg" />
+    <title>Ready2go :)</title>
     <style>
         *{
             margin: 0;
@@ -18,39 +18,280 @@
             display: flex;
             flex-direction: column;
         }
+        .logo {
+            flex: 0 0 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo img {
+            width: 210px;
+            height: 80px;
+        }
+        .select-div {
+            width: 95%;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid #eee;
+            position: relative;
+            background-color: #fff;
+            padding: 5px 0;
+            color: #787878;
+        }
+        select.txt {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            font-size: 16px;
+        }
+
+        .all_levels {
+            width: 100%;
+            flex: 0 0 40px;
+            /* background-color: pink; */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .level {
+            flex: 0 0 18vw;
+            height: 28px;
+            background-color: #fff;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: 900;
+        }
+
+        .country_name {
+            width: 100%;
+            flex: 0 0 60px;
+            /* background-color: pink; */
+            color: rgb(193, 191, 191);
+            text-align: center;
+            line-height: 60px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+
+        .advices {
+            /* flex: 0 0 80vh; */
+            /* background-color: pink; */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .us_advice {
+            /* flex: 0 0 30vh; */
+            width: 98%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 1vh;
+            /* margin: 1vh auto; */
+            /* justify-content: space-around; */
+        }
+        .us_advice>h3 {
+            /* flex: 0 0 30px; */
+            height: 30px;
+            /* background-color: #fff; */
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+        }
+        .us_advice .country_level {
+            /* flex: 0 0 30px; */
+            height: 30px;
+            /* background-color: pink; */
+            color: #fff;
+            line-height: 30px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .us_advice .messages {
+            width: 96%;
+            /* flex: 0 0 30px; */
+            height: 36px;
+            line-height: 36px;
+            /* background-color: rgb(161, 40, 60); */
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+            font-weight: 700;
+            margin: 1vh auto;
+            font-size: 15px;
+        }
+
+        .us_advice .content {
+            width: 96%;
+            /* flex: 1; */
+            color: #8a0612;
+            font-size: 15px;
+            margin: 1vh auto;
+            /* background-color: pink; */
+        }
+
+        #hrefs a {
+            color: #c4c4c4;  
+        }
     </style>
 </head>
 <body>
-    <!-- pc -->
-    <iframe src="/daworld-pc/us.html" frameborder="0" style="width: 100%;height: 100%;display: none;" id="pc"></iframe>
-    <!-- phone -->
-    <iframe src="/daworld-moblile/index.html" frameborder="0" style="width: 100%;height: 100%;display: none;" id="phone"></iframe>
+    <div class="logo">
+        <img src="./img/logo.png" alt="">
+    </div>
+    <div class="select-div" style="font-family: 'Arial';">
+        <span id="select-show">Here to Select Country & Region</span>
+        <select id="selects" name="" class="txt">
+            <option>Here to Select Country & Region</option>
+        </select>
+    </div>
+    <div class="all_levels" style="font-family: 'Arial';">
+        <div class="level" style="background-color: #a8cb9f;">
+            Level 1
+        </div>
+        <div class="level" style="background-color: #facb5a;">
+            Level 2
+        </div>
+        <div class="level" style="background-color: #e78434;">
+            Level 3
+        </div>
+        <div class="level" style="background-color: #fd5449;">
+            Level 4
+        </div>
+        <div class="level" style="background-color: #d8d8e1;">
+            NoData
+        </div>
+    </div>
+    <div class="country_name" id="country_name" style="font-family: 'Arial';">
+    </div>
+
+
+    <div class="advices" style="font-family: 'Arial';">
+        <div class="us_advice" style="background-color: #e78434;" id="us_advice">
+            <h3>US Advice</h3>
+            <div class="country_level" id="us_Level">
+            </div>
+            <div class="messages">
+                <div style="color: #8a0612;" id="us_Threats"></div>
+                <div style="color: #fff;" id="us_DateUpdated"></div>
+            </div>
+            <div class="content">
+                Detail: <span id="us_Details"></span>
+            </div>
+        </div>
+        <div class="us_advice" style="background-color: #facb5a;" id="au_advice">
+            <h3>AU Advice</h3>
+            <div class="country_level" id="au_Level">
+            </div>
+            <div class="messages">
+                <div style="color: #8a0612;" id="au_Threats"></div>
+                <div style="color: #fff;" id="au_DateUpdated"></div>
+            </div>
+            <div class="content">
+                Detail: <span id="au_Details"></span>
+            </div>
+        </div>
+        <div class="us_advice" style="background-color: #a8cb9f;flex: 0 0 15vh;" id="ca_advice">
+            <h3>CA Advice</h3>
+            <div class="country_level" id="ca_Level">
+            </div>
+            <div class="messages">
+                <!-- <div style="color: #8a0612;">None</div> -->
+                <div style="color: #fff;" id="ca_DateUpdated"></div>
+            </div>
+        </div>
+        <div style="color: #c4c4c4;font-size:14px;" id="hrefs">
+            <p><br><br>If you would like to find updated and accurate travel advice via the official website, you can find them via the links below.<br>
+                <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html/">US Travel Advice</a>
+                | <a href="https://www.smartraveller.gov.au/destinations">AU Travel Advice</a>
+                | <a href="https://travel.gc.ca/travelling/advisories">CA Travel Advice</a>
+                | <a href="https://www.gov.uk/foreign-travel-advice">UK Travel Advice</a>
+                | <a href="https://www.safetravel.govt.nz/travel-advisories-destination">NZ Travel Advice</a>
+                <br><br><a href="mobile.html">Ready2go</a>
+                | © <a href="https://catalog.data.gov/dataset/travel-alerts">American Government</a>
+                | © <a href="https://creativecommons.org/publicdomain/zero/1.0/">Australian Government</a>
+                | © <a href="https://open.canada.ca/data/en/dataset/bef2ebb3-ca9a-485f-aaff-5dc36eb89426" alink="#0066ff" vlink="#fff;">Canada Government</a>
+                <br><br><br>
+                <br>
+                <br>‍
+                <br>‍
+                <br>‍
+            </p>
+            
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
     <script>
-        function IsPC(){  
-            // navigator这个是浏览器变量  userAgent参数 这个参数主要告诉服务器 我是什么设备
-            var userAgentInfo = navigator.userAgent;
-            var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
-            // flag 默认是pc模式  flag是变量 做判断用
-            var flag = true;  
+        let us_result = {}
+        let ca_result = {}
+        let au_result = {}
+        $('#selects').change(function () {
+            var index = $('#selects option:selected').index(); //序号，取当前选中选项的序号
+            $('#select-show').html($('#selects option:selected').html());
 
-            for (var v = 0; v < Agents.length; v++) {  
-                if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
-            }  
-            return flag;  
-        }
+            // 获取国家名
+            const country_name = $('#selects').find('option:selected').val()
+            // 判断结果中有无数据
+            const us_country_result = us_result[country_name]
 
-        
-        let pc = document.getElementById('pc')
-        let phone = document.getElementById('phone')
+            let us_DateUpdated = ''
+            let us_Threats = ''
+            let us_Details = ''
+            let us_Level = ''
+            let us_color = '#d8d8e1'
+            if(country_name && us_country_result)
+            {
+                us_DateUpdated = us_country_result['DateUpdated']
+                us_Threats = us_country_result['Threats'] ? us_country_result['Threats'] : 'None'
+                us_Details = us_country_result['Details']
+                us_Level = us_country_result['Level']
+                us_color = us_country_result['color']
+            }
+            change_us_advice(us_color,us_DateUpdated,us_Details,us_Level,us_Threats,country_name)
 
-        if(IsPC())
-        {
-            pc.style.display = 'block'
-        }
-        else
-        {
-            phone.style.display = 'block'
-        }
+
+            
+            const au_country_result = au_result[country_name]
+            let au_DateUpdated = ''
+            let au_Threats = ''
+            let au_Details = ''
+            let au_Level = ''
+            let au_color = '#d8d8e1'
+            if(country_name && au_country_result)
+            {
+                au_DateUpdated = au_country_result['DateUpdated']
+                au_Threats = au_country_result['Threats'] ? au_country_result['Threats'] : 'None'
+                au_Details = au_country_result['Details']
+                au_Level = au_country_result['Level']
+                au_color = au_country_result['color']
+            }
+
+            change_au_advice(au_color,au_DateUpdated,au_Details,au_Level,au_Threats)
+
+            const ca_country_result = ca_result[country_name]
+            let ca_DateUpdated = ''
+            let ca_Level = ''
+            let ca_color = '#d8d8e1'
+            if(country_name && ca_country_result)
+            {
+                ca_DateUpdated = ca_country_result['DateUpdated']
+                ca_Level = ca_country_result['Level']
+                ca_color = ca_country_result['color']
+            }
+            change_ca_advice(ca_color,ca_DateUpdated,ca_Level)
+        })
     </script>
+    <script src="js/init_map.js"></script>
 </body>
 </html>
